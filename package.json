@@ -13,7 +13,6 @@
     "@fingerprintjs/fingerprintjs-pro": "^3.11.8",
     "axios": "^1.8.4",
     "cors": "^2.8.5",
-    "cros": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
