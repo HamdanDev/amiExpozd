@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposure Check</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.4/fingerprint2.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <button id="theme-toggle">🌙 Toggle Dark Mode</button>
+    <h1>Your Exposure Details</h1>
+    <div id="info">
+        <p><strong>IP Address:</strong> <span id="ip"></span></p>
+        <p><strong>Location:</strong> <span id="location"></span></p>
+        <p><strong>ISP:</strong> <span id="isp"></span></p>
+        <p><strong>VPN Detected:</strong> <span id="vpn"></span></p>
+        <p><strong>Browser:</strong> <span id="browser"></span></p>
+        <p><strong>OS:</strong> <span id="os"></span></p>
+        <p><strong>Screen Size:</strong> <span id="screen"></span></p>
+        <p><strong>Fingerprint ID:</strong> <span id="fingerprint"></span></p>
+        <p><strong>WebRTC IP Leak:</strong> <span id="webrtc-ip"></span></p>
+        <p><strong>Cookies Enabled:</strong> <span id="cookies"></span></p>
+        <p><strong>JavaScript Enabled:</strong> <span id="js-enabled">Yes ✅</span></p>
+        <p><strong>Search History:</strong> 
+            <select id="search-history">
+                <option>Loading...</option>
+            </select>
+        </p>
+        <p><strong>Ad Blocker Detected:</strong> <span id="adblock"></span></p>
+    </div>
+</body>
+</html>
