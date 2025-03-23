@@ -11,14 +11,6 @@ fetch("/ip-info")
   })
   .catch((error) => console.error("Error fetching IP data:", error));
 
-document.getElementById("search-btn").addEventListener("click", function () {
-  let searchQuery = document.getElementById("search-input").value;
-  if (searchQuery) {
-    // Add the search query to the history and load it
-    addSearchToHistory(searchQuery);
-    loadSearchHistory();
-  }
-});
 // Detect browser, OS, and screen size
 function getWindowsVersion() {
   let userAgent = navigator.userAgent;
@@ -138,58 +130,3 @@ function detectAdBlock() {
 
 detectAdBlock();
 
-// Load Search History Dropdown
-// Function to save a search query to localStorage
-function addSearchToHistory(query) {
-  let history = JSON.parse(localStorage.getItem("searchHistory")) || [];
-  // Add the new search to the beginning of the list
-  history.unshift(query);
-  // Keep only the last 5 searches
-  if (history.length > 5) history.pop();
-  // Save the updated history back to localStorage
-  localStorage.setItem("searchHistory", JSON.stringify(history));
-}
-
-// Function to load and display the search history
-function loadSearchHistory() {
-  let searchDropdown = document.getElementById("search-history");
-  searchDropdown.innerHTML = `<option>Recent Searches</option>`; // Reset dropdown
-
-  // Get the history from localStorage
-  let history = JSON.parse(localStorage.getItem("searchHistory")) || [];
-
-  if (history.length === 0) {
-    let option = document.createElement("option");
-    option.textContent = "No searches yet";
-    searchDropdown.appendChild(option);
-  } else {
-    history.forEach((search) => {
-      let option = document.createElement("option");
-      option.textContent = search;
-      searchDropdown.appendChild(option);
-    });
-  }
-}
-
-// Call this function on page load to display recent searches
-loadSearchHistory();
-
-// Function to detect Google search referrer
-function getGoogleSearchReferrer() {
-  let referrer = document.referrer;
-  let searchQuery = null;
-
-  // Check if the referrer is from Google search
-  if (referrer.includes("google.com/search?q=")) {
-    let urlParams = new URL(referrer).searchParams;
-    searchQuery = urlParams.get("q"); // Extract search query from Google
-  }
-
-  if (searchQuery) {
-    // Add search query to history
-    addSearchToHistory(searchQuery);
-  }
-}
-
-// Call the function on page load
-getGoogleSearchReferrer();
