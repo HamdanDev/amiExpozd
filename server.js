@@ -8,6 +8,15 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 
+const apiKey = process.env.IPHUB_TOKEN; // Access the variable
+console.log('IPHUB_TOKEN : ',apiKey);
+
+const apiKey2 = process.env.IPINFO_TOKEN; // Access the variable
+console.log('IPINFO_TOKEN : ',apiKey2);
+
+const apiKey3 = process.env.FINGERPRINTJS_TOKEN; // Access the variable
+console.log('FINGERPRINTJS_TOKEN : ',apiKey3);
+
 app.get("/ip-info", async (req, res) => {
     try {
         // Fetch public IP
